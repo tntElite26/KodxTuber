@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KodxTuber — Descarga gratis para Android</title>
+<meta name="description" content="La alternativa a YouTube: mira y sube videos ilimitados, gratis para siempre y sin publicidad. Descarga KodxTuber 2.6.0 para Android.">
+<style>
+:root{
+  --bg:#f3f1ee; --ink:#14121a; --muted:#5d5968; --card:#ffffff; --line:#ddd9e3;
+  --brand:#e5173f; --brand-ink:#ffffff; --deep:#2a1a6e; --soft:#ece8f7;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#12101a; --ink:#f4f2f8; --muted:#a7a2b5; --card:#1b1826; --line:#2e2a3d; --soft:#231f35; --deep:#b9a8ff;
+}}
+:root[data-theme="dark"]{--bg:#12101a; --ink:#f4f2f8; --muted:#a7a2b5; --card:#1b1826; --line:#2e2a3d; --soft:#231f35; --deep:#b9a8ff;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+header{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.25rem;text-decoration:none;letter-spacing:-.02em}
+.logo i{width:34px;height:24px;background:var(--brand);border-radius:7px;position:relative;display:inline-block}
+.logo i::after{content:"";position:absolute;left:13px;top:6px;border-left:9px solid #fff;border-top:6px solid transparent;border-bottom:6px solid transparent}
+nav a{margin-left:22px;text-decoration:none;color:var(--muted);font-size:.95rem}
+nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--brand);color:var(--brand-ink);font-weight:700;font-size:1.1rem;padding:16px 28px;border-radius:14px;text-decoration:none;border:0;box-shadow:0 8px 0 rgba(0,0,0,.18);transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translateY(3px);box-shadow:0 5px 0 rgba(0,0,0,.18)}
+.btn:active{transform:translateY(8px);box-shadow:0 0 0 rgba(0,0,0,.18)}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--deep);outline-offset:3px}
+.btn.sm{padding:10px 18px;font-size:.95rem;box-shadow:none}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding:56px 0 72px}
+h1{font-size:clamp(2.6rem,6.4vw,4.9rem);line-height:.98;letter-spacing:-.045em;margin:0 0 22px;font-weight:800}
+.lead{font-size:1.2rem;color:var(--muted);max-width:34ch;margin:0 0 30px}
+.meta{margin-top:20px;color:var(--muted);font-size:.9rem;display:flex;flex-wrap:wrap;gap:6px 18px}
+.phone{justify-self:center;width:260px;aspect-ratio:9/18;background:#0d0b14;border-radius:38px;padding:12px;box-shadow:0 30px 60px -20px rgba(42,26,110,.45);transform:rotate(3deg)}
+.screen{height:100%;border-radius:28px;background:#181422;overflow:hidden;display:flex;flex-direction:column;color:#fff}
+.player{aspect-ratio:16/10;background:linear-gradient(135deg,#2a1a6e,#e5173f);position:relative}
+.player::after{content:"";position:absolute;left:50%;top:50%;margin:-14px 0 0 -9px;border-left:26px solid #fff;border-top:16px solid transparent;border-bottom:16px solid transparent;transform:translateX(-4px)}
+.bar{height:4px;background:rgba(255,255,255,.2);margin:0}
+.bar b{display:block;height:100%;width:62%;background:#e5173f}
+.rows{padding:14px;display:grid;gap:12px}
+.row{display:flex;gap:10px;align-items:center}
+.row span{width:64px;height:40px;border-radius:8px;background:#2d2740;flex:none}
+.row div{flex:1}.row div i{display:block;height:7px;border-radius:4px;background:#3a3350;margin-bottom:6px}.row div i+i{width:60%}
+.notice{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--soft);border:1.5px solid var(--deep);border-radius:18px;padding:20px 24px;margin:0 0 56px}
+.notice p{margin:0;max-width:60ch}
+.notice b{display:block;font-size:1.1rem;margin-bottom:2px}
+.notice a.btn{box-shadow:none}
+section{padding:64px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(1.8rem,3.6vw,2.6rem);letter-spacing:-.035em;line-height:1.08;margin:0 0 14px;max-width:20ch}
+.sub{color:var(--muted);max-width:52ch;margin:0 0 36px}
+.compare{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1.5px solid var(--ink);border-radius:18px;overflow:hidden;background:var(--card)}
+.compare>div{padding:18px 22px;border-bottom:1px solid var(--line);font-size:1rem}
+.compare>div:nth-last-child(-n+3){border-bottom:0}
+.compare .h{font-weight:800;background:var(--soft)}
+.compare .h.k{background:var(--brand);color:#fff}
+.compare .y{font-weight:700;color:var(--brand)}
+.feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:34px 40px}
+.feats h3{margin:0 0 6px;font-size:1.2rem;letter-spacing:-.02em}
+.feats p{margin:0;color:var(--muted)}
+.steps{counter-reset:s;display:grid;gap:18px;max-width:640px;padding:0;list-style:none;margin:0}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start}
+.steps li::before{content:counter(s);width:44px;height:44px;border-radius:50%;background:var(--deep);color:var(--bg);display:grid;place-items:center;font-weight:800}
+.steps b{display:block}
+.steps span{color:var(--muted)}
+details{border-bottom:1px solid var(--line);padding:16px 0;max-width:720px}
+summary{cursor:pointer;font-weight:700;font-size:1.05rem}
+details p{color:var(--muted);margin:10px 0 0}
+.cta{background:var(--deep);color:var(--bg);border-radius:26px;padding:56px 32px;text-align:center;margin:40px 0 64px}
+.cta h2{margin:0 auto 12px;max-width:18ch;color:inherit}
+.cta p{margin:0 0 28px;opacity:.85}
+footer{padding:28px 0 40px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line)}
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;padding-top:24px}
+  .phone{width:220px;transform:none;order:-1}
+  nav a:not(.btn){display:none}
+  .compare{font-size:.9rem}.compare>div{padding:14px 12px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="logo" href="#"><i></i>KodxTuber</a>
+  <nav><a href="#ventajas">Ventajas</a><a href="#instalar">Instalar</a><a href="#faq">Preguntas</a><a class="btn sm" href="https://huggingface.co/tntprojects/archivos/resolve/main/KodxTuber_2.6.0.apk" download>Descargar</a></nav>
+</header>
+
+<main>
+<div class="hero">
+  <div>
+    <h1>Videos sin límites. Sin anuncios. Sin pagar.</h1>
+    <p class="lead">La alternativa a YouTube para quienes están cansados de lo mismo. Mira y sube todos los videos que quieras, gratis para siempre y con más libertad.</p>
+    <a class="btn" href="https://huggingface.co/tntprojects/archivos/resolve/main/KodxTuber_2.6.0.apk" download>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg>
+      Descargar APK 2.6.0
+    </a>
+    <div class="meta"><span>Para Android</span><span>Versión 2.6.0</span><span>100% gratis</span></div>
+  </div>
+  <div class="phone" aria-hidden="true">
+    <div class="screen">
+      <div class="player"></div><div class="bar"><b></b></div>
+      <div class="rows">
+        <div class="row"><span></span><div><i></i><i></i></div></div>
+        <div class="row"><span></span><div><i></i><i></i></div></div>
+        <div class="row"><span></span><div><i></i><i></i></div></div>
+        <div class="row"><span></span><div><i></i><i></i></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="notice" role="note">
+  <p><b>Aviso importante</b>A partir de la versión 2.4.0, las nuevas actualizaciones de KodxTuber estarán disponibles en la tienda KodxStore.</p>
+  <a class="btn sm" href="https://kodxstore.k.vu" target="_blank" rel="noopener">Ir a KodxStore</a>
+</div>
+
+<section id="ventajas">
+  <h2>Lo que YouTube te limita, aquí no.</h2>
+  <p class="sub">Una comparación directa de lo que importa al ver videos todos los días.</p>
+  <div class="compare" role="table" aria-label="Comparación KodxTuber y YouTube">
+    <div class="h"></div><div class="h k">KodxTuber</div><div class="h">YouTube</div>
+    <div>Videos</div><div class="y">Ilimitados</div><div>Con restricciones</div>
+    <div>Publicidad</div><div class="y">Ninguna</div><div>Anuncios constantes</div>
+    <div>Precio</div><div class="y">Gratis para siempre</div><div>Premium de pago</div>
+    <div>Subir videos</div><div class="y">Sí, ilimitados</div><div>Con restricciones</div>
+    <div>Libertad de uso</div><div class="y">Total</div><div>Limitada</div>
+  </div>
+</section>
+
+<section>
+  <div class="feats">
+    <div><h3>Gratis de verdad</h3><p>Sin suscripciones, sin planes y sin letra pequeña. Lo descargas y listo.</p></div>
+    <div><h3>Cero publicidad</h3><p>Ningún anuncio interrumpe tu video. Empiezas y sigues viendo.</p></div>
+    <div><h3>Sin topes de videos</h3><p>Mira todos los que quieras, cuando quieras.</p></div>
+    <div><h3>Ver y subir</h3><p>No solo miras videos: también puedes subir los tuyos y compartirlos.</p></div>
+    <div><h3>Una alternativa real</h3><p>Pensado para quienes están cansados de lo mismo en YouTube y quieren otra opción.</p></div>
+    <div><h3>Más libertad</h3><p>Tú decides cómo ver tu contenido, sin tantas barreras.</p></div>
+  </div>
+</section>
+
+<section id="instalar">
+  <h2>Instálalo en 3 pasos.</h2>
+  <p class="sub">Como se instala desde un archivo APK, Android te pedirá un permiso una sola vez.</p>
+  <ol class="steps">
+    <li><div><b>Descarga el APK</b><span>Toca el botón de descarga y espera a que termine.</span></div></li>
+    <li><div><b>Permite la instalación</b><span>Si Android lo pide, activa “Instalar apps desconocidas” para tu navegador o gestor de archivos.</span></div></li>
+    <li><div><b>Abre KodxTuber</b><span>Instala, abre la app y empieza a ver o a subir tus videos.</span></div></li>
+  </ol>
+</section>
+
+<section id="faq">
+  <h2>Preguntas frecuentes</h2>
+  <details><summary>¿Es realmente gratis?</summary><p>Sí. KodxTuber es gratuito y no tiene anuncios.</p></details>
+  <details><summary>¿Dónde estarán las actualizaciones futuras?</summary><p>A partir de la versión 2.4.0, las nuevas actualizaciones estarán en la tienda KodxStore (kodxstore.k.vu).</p></details>
+  <details><summary>¿Puedo subir mis propios videos?</summary><p>Sí. KodxTuber no es solo para ver: también puedes subir tus videos y compartirlos.</p></details>
+  <details><summary>¿Es una alternativa a YouTube?</summary><p>Sí. Está pensada para quienes quieren una plataforma distinta, gratis y sin publicidad.</p></details>
+  <details><summary>¿Qué versión es la más reciente?</summary><p>Esta página ofrece la versión 2.6.0.</p></details>
+  <details><summary>¿Para qué dispositivos está disponible?</summary><p>El archivo es un APK, por lo que funciona en dispositivos Android.</p></details>
+  <details><summary>¿Por qué Android me pide un permiso?</summary><p>Es el aviso normal de Android al instalar apps que no vienen de Google Play. Descarga siempre el APK solo desde este sitio oficial.</p></details>
+</section>
+
+<div class="cta">
+  <h2>Empieza a ver sin límites.</h2>
+  <p>Mira y sube videos · Gratis · Sin publicidad</p>
+  <a class="btn" href="https://huggingface.co/tntprojects/archivos/resolve/main/KodxTuber_2.6.0.apk" download>Descargar ahora</a>
+</div>
+</main>
+
+<footer>Desarrollado por KodxStudios. Todos los derechos reservados.</footer>
+</div>
+</body>
+</html>
